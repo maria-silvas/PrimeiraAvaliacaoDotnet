@@ -13,7 +13,7 @@ namespace PrimeiraProva
             {
                 string[] collection = File.ReadAllLines("Arquivo.txt");
                 int[] array = new int[collection.Length];
-
+            // Criar o array com tamanho das linhas para serem executadas.
                 for (int i = 0; i < collection.Length; i++)
                 {
                     array[i] = int.Parse(collection[i]);
@@ -21,7 +21,6 @@ namespace PrimeiraProva
 
                 Console.WriteLine("[1] - Selection Sort");
                 Console.WriteLine("[2] - Bubble Sort");
-                Console.WriteLine("[3] - Insertion Sort");
                 Console.WriteLine("Selecione sua opção: ");
                 int op = int.Parse(Console.ReadLine());
 
@@ -49,7 +48,8 @@ namespace PrimeiraProva
                 Console.WriteLine("Erro: " + ex.Message);
             }
         }
-
+          // Metodo SELECTION SORT ele serve para pegar o numero colocar eles do menor
+            // para o maior
         static void SortArray(int[] array)
         {
             int n = array.Length;
@@ -64,11 +64,12 @@ namespace PrimeiraProva
                         minIndex = j;
                     }
                 }
+
                 int temp = array[minIndex];
                 array[minIndex] = array[i];
                 array[i] = temp;
             }
-
+             // Salvado o Array ordenado no arquivo ArraySalvo.txt
             File.WriteAllLines("Array.txt", array.Select(x => x.ToString()));
 
             SortedSet<int> orderedCollection = new SortedSet<int>(array);
@@ -86,7 +87,7 @@ namespace PrimeiraProva
                 Console.WriteLine(i);
             }
         }
-
+            //objetivo é ordenar os valores em forma decrescente
         static void BubbleSort(int[] array)
         {
             int n = array.Length;
